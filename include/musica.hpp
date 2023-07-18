@@ -21,8 +21,16 @@ class Musica {
 
   public:
     /**
+     * @brief Construtor padrão da classe Musica.
+     *
+     * Constroi um objeto do tipo música sem setar nada.
+     */
+    Musica();
+
+    /**
      * @brief Construtor da classe Musica.
      *
+     * Construtor que recebe o título da música e o nome do artista
      * @param titulo O título da música.
      * @param artista O nome do artista.
      */

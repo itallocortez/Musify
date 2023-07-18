@@ -8,6 +8,11 @@
 
 using namespace std;
 
+Musica::Musica()
+{
+  
+}
+
 Musica::Musica(string titulo, string artista)
 {
   this->titulo = titulo;
@@ -17,7 +22,7 @@ Musica::Musica(string titulo, string artista)
 Musica::~Musica()
 {
   
-};
+}
 
 string Musica::getTitulo()
 {
@@ -33,7 +38,6 @@ string Musica::getArtista()
 {
   return artista;
 }
-
 void Musica::setArtista(string artista)
 {
   this->artista = artista;
