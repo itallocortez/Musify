@@ -17,4 +17,5 @@ include_directories( include )
 # Cria um executável a partir dos códigos fonte
 add_executable( musify
                 src/main.cpp
-                src/musica.cpp )
+                src/musica.cpp
+                src/playlist.cpp )
