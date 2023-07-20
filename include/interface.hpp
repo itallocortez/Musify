@@ -15,6 +15,15 @@
  */
 
 /**
+ * @brief Imprime o tílulo destacado dos menus.
+ *
+ * Esta função imprime o título do menu de forma destacada.
+ *
+ * @param titulo String como o título desejado.
+ */
+void imprimirTitulo(std::string titulo);
+
+/**
  * @brief Lê uma opção do usuário dentro de um intervalo específico.
  *
  * Esta função solicita para que o usuario escolha uma opção dentro de um intervalo.
@@ -101,6 +110,71 @@ void removerPlaylist(Lista<Playlist*> *playlists);
  * @param musicas Ponteiro para a lista de playlists que deseja listar.
  */
 void listarPlaylists(Lista<Playlist*> *playlists);
+
+/**
+ * @brief Seleciona uma playlist para alterar.
+ *
+ * Essa função abre uma interface responsável por selecionar uma
+ * playlist no sistema para ser gerenciada.
+ *
+ * @param playlists Ponteiro para a lista de playlists existentes.
+ * @return Ponteiro da playlist selecionada.
+ */
+Playlist* selecionarPlaylist(Lista<Playlist*> *playlists);
+
+/**
+ * @brief Adiciona uma música a playlist
+ *
+ * Essa função abre uma interface responsável por adicionar uma
+ * música na playlist.
+ *
+ * @param musicas Ponteiro para a lista de playlists que deseja listar.
+ * @param playlists Ponteiro para a lista de playlists existentes.
+ */
+void adicionarMusicaNaPlaylist(Lista<Musica*> *musicas, Playlist *playlists);
+
+/**
+ * @brief Remove uma música de uma playlist.
+ *
+ * Essa função abre uma interface responsável por remover uma
+ * música da playlist.
+ *
+ * @param musicas Ponteiro para a lista de playlists que deseja listar.
+ */
+void removerMusicaDePlaylist(Playlist *playlist);
+
+/**
+ * @brief Move uma música de uma playlist para outra.
+ *
+ * Essa função abre uma interface responsável por mover uma música de uma
+ * playlist para outra.
+ *
+ * @param playlists Ponteiro para a lista de playlists existentes.
+ * @param playlistSelecionada Ponteiro para a playlist que está sendo visualizada no momento.
+ */
+void moverMusica(Lista<Playlist*> *playlists, Playlist *playlistSelecionada);
+
+/**
+ * @brief Mostra a próxima música que será tocada.
+ *
+ * Essa função imprime na tela qual será a próxima música tocada pela ordem de reprodução
+ * da playlist.
+ *
+ * @param playlistSelecionada Ponteiro para a playlist que está sendo visualizada no momento.
+ */
+void tocarProxima(Playlist *playlistSelecionada);
+
+/**
+ * @brief Menu para Gerenciamento de Músicas de uma Playlist
+ *
+ * Este menu permite ao usuário acessar opções para adicionar, remover e listar as músicas da playlist.
+ * Também é possível mover músicas para outras playlists e ver qual será a próxima música tocada.
+ * Ao selecionar uma das opções disponíveis, o usuário será direcionado para a funcionalidade correspondente.
+ *
+ * @param playlists Ponteiro para a lista de playlists existentes.
+ * @param musicas Ponteiro para a lista de músicas disponíveis.
+ */
+void gerenciarMusicasDePlaylist(Lista<Playlist*> *playlists, Lista<Musica*> *musicas);
 
 /**
  * @brief Menu para Gerenciamento de Playlists

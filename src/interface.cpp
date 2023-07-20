@@ -2,11 +2,13 @@
 
 using namespace std;
 
-void imprimirTitulo(std::string titulo) {
+void imprimirTitulo(string titulo)
+{
   cout << "\033[1;35m" << titulo << "\033[0m" << endl << endl;
 }
 
-int lerOpcao(int opcaoMinima, int opcaoMaxima) {
+int lerOpcao(int opcaoMinima, int opcaoMaxima)
+{
   std::string entrada; // Entrada do usuário
   int opcao; // Opção escolhida
 
@@ -49,7 +51,8 @@ int lerOpcao(int opcaoMinima, int opcaoMaxima) {
   return opcao;
 }
 
-void cadastrarMusica(Lista<Musica*> *musicas) {
+void cadastrarMusica(Lista<Musica*> *musicas)
+{
   imprimirTitulo("CADASTRAR MÚSICA");
   
   string titulo;
@@ -67,7 +70,8 @@ void cadastrarMusica(Lista<Musica*> *musicas) {
   cout << endl << "Música cadastrada com sucesso!" << endl;
 }
 
-void removerMusica(Lista<Playlist*> *playlists, Lista<Musica*> *musicas) {
+void removerMusica(Lista<Playlist*> *playlists, Lista<Musica*> *musicas)
+{
   if(musicas->isVazia()) {
     cout << "Nenhuma música para remover!" << endl;
   } else {
@@ -100,7 +104,8 @@ void removerMusica(Lista<Playlist*> *playlists, Lista<Musica*> *musicas) {
   }
 }
 
-void listarMusicas(Lista<Musica*> *musicas) {
+void listarMusicas(Lista<Musica*> *musicas)
+{
   if (musicas->isVazia()) {
     cout << "Nenhuma música para listar!" << endl;
   } else {
@@ -115,7 +120,8 @@ void listarMusicas(Lista<Musica*> *musicas) {
   }
 }
 
-bool gerenciarMusicas(Lista<Playlist*> *playlists, Lista<Musica*> *musicas) {
+bool gerenciarMusicas(Lista<Playlist*> *playlists, Lista<Musica*> *musicas)
+{
   imprimirTitulo("GERENCIAR MUSICAS");
   
   cout << "1. Cadastrar Música" << endl;
@@ -143,7 +149,8 @@ bool gerenciarMusicas(Lista<Playlist*> *playlists, Lista<Musica*> *musicas) {
   return true;
 }
 
-void cadastrarPlaylist(Lista<Playlist*> *playlists) {
+void cadastrarPlaylist(Lista<Playlist*> *playlists)
+{
   imprimirTitulo("CADASTRAR PLAYLIST");
   
   string nome;
@@ -157,7 +164,8 @@ void cadastrarPlaylist(Lista<Playlist*> *playlists) {
   cout << endl << "Playlist cadastrada com sucesso!" << endl;
 }
 
-void removerPlaylist(Lista<Playlist*> *playlists) {
+void removerPlaylist(Lista<Playlist*> *playlists)
+{
   if(playlists->isVazia()) {
     cout << "Nenhuma playlist para remover!" << endl;
   } else {
@@ -177,7 +185,8 @@ void removerPlaylist(Lista<Playlist*> *playlists) {
   }
 }
 
-void listarPlaylists(Lista<Playlist*> *playlists) {
+void listarPlaylists(Lista<Playlist*> *playlists)
+{
   if (playlists->isVazia()) {
     cout << "Nenhuma playlist para listar!" << endl;
   } else {
@@ -191,7 +200,8 @@ void listarPlaylists(Lista<Playlist*> *playlists) {
   }
 }
 
-bool gerenciarPlaylists(Lista<Playlist*> *playlists, Lista<Musica*> *musicas) {
+bool gerenciarPlaylists(Lista<Playlist*> *playlists, Lista<Musica*> *musicas)
+{
   imprimirTitulo("GERENCIAR PLAYLISTS");
 
   cout << "1. Cadastrar Playlist" << endl;
@@ -219,14 +229,169 @@ bool gerenciarPlaylists(Lista<Playlist*> *playlists, Lista<Musica*> *musicas) {
   return true;
 }
 
-bool menuPrincipal(Lista<Playlist*> *playlists, Lista<Musica*> *musicas) {
+Playlist* selecionarPlaylist(Lista<Playlist*> *playlists)
+{
+  if(playlists->isVazia()) {
+    // Nenhuma playlist para selecionar!
+    return nullptr;
+  } else {
+    listarPlaylists(playlists);
+
+    int indice; // O índice da playlist que será alterada.    
+    cout << "Informe o [ID] da playlist que será alterada.";
+    indice = lerOpcao(0, (playlists->getTamanho() - 1));
+
+    return playlists->em(indice)->getValor();
+  }
+}
+
+void adicionarMusicaNaPlaylist(Lista<Musica*> *musicas, Playlist *playlists)
+{
+  if(musicas->isVazia()) {
+    cout << "Nenhuma música para adicionar!" << endl;
+  } else {
+    imprimirTitulo("ADICIONAR MÚSICA");
+    
+    listarMusicas(musicas);
+  
+    int indice; // O índice da música que será adicionada.    
+    cout << "Informe o [ID] da música que será adicionada.";
+    indice = lerOpcao(0, (musicas->getTamanho() - 1));
+
+    Musica *MusicaAdicionada = musicas->em(indice)->getValor();
+
+    playlists->adicionarMusica(MusicaAdicionada);
+
+    cout << endl << "Música Adicionada Com Sucesso na Playlist!" << endl;
+  }
+}
+
+void removerMusicaDePlaylist(Playlist *playlist)
+{
+  if(playlist->getTamanho() == 0) {
+    cout << "Nenhuma música para remover!" << endl;
+  } else {
+    listarMusicas(playlist->getMusicas());
+
+    int indice; // O índice da playlist que será removida.    
+    cout << "Informe o [ID] da música que será removida.";
+    indice = lerOpcao(0, (playlist->getTamanho() - 1));
+  
+    // Por fim, remove da lista global de playlists.
+    playlist->getMusicas()->removerEm(indice);
+
+    cout << endl << "Música removida com sucesso!" << endl;
+  }
+}
+
+void moverMusica(Lista<Playlist*> *playlists, Playlist *playlistSelecionada)
+{
+  if(playlists->getTamanho() < 2) {
+    cout << "Nenhuma outra playlist para mover a música!" << endl;
+  } else {
+    if (playlistSelecionada->getTamanho() == 0) {
+      cout << "Nenhuma música para mover nessa playlist!" << endl;
+    } else {
+      listarPlaylists(playlists);
+
+      cout << "Informe o [ID] da playlist destino.";
+      int idPlaylistDestino = lerOpcao(0, (playlists->getTamanho() - 1));
+      Playlist *PlaylistDestino = playlists->em(idPlaylistDestino)->getValor();
+
+      if(PlaylistDestino == playlistSelecionada) {
+        cout << "Selecione uma playlist diferente da original." << endl;
+      } else {
+        listarMusicas(playlistSelecionada->getMusicas());
+      
+        cout << "Informe o [ID] da música que será movida.";
+        int idMusicaMovida = lerOpcao(0, (playlistSelecionada->getMusicas()->getTamanho() - 1));
+        Musica *MusicaMovida = playlistSelecionada->getMusicas()->em(idMusicaMovida)->getValor();
+
+        // Remove a música da playlist original
+        playlistSelecionada->getMusicas()->removerEm(idMusicaMovida);
+
+        // Adiciona música na playlist destino
+        PlaylistDestino->adicionarMusica(MusicaMovida);
+
+        cout << endl << "Música movida com sucesso!" << endl;
+      }
+    }
+  }
+}
+
+void tocarProxima(Playlist *playlistSelecionada)
+{
+  Musica *proximaMusica = playlistSelecionada->getProximaMusica();
+
+  if(proximaMusica == nullptr) {
+    cout << endl << "Não há mais músicas para serem tocadas." << endl;
+  } else {
+    cout << endl << "Próxima Música: " << proximaMusica->getTitulo() << endl;
+  }
+}
+
+void gerenciarMusicasDePlaylist(Lista<Playlist*> *playlists, Lista<Musica*> *musicas)
+{
+  if(playlists->isVazia()) {
+    cout << "Nenhuma playlist para gerenciar!" << endl;
+  } else {
+    bool fecharMenu = false;
+  
+    Playlist *playlistSelecionada = nullptr;
+    
+    while(!fecharMenu) {
+      if(playlistSelecionada == nullptr) {
+        playlistSelecionada = selecionarPlaylist(playlists);
+      } else {
+        imprimirTitulo("GERENCIANDO PLAYLIST");
+        
+        cout << "Playlist Selecionada: " << playlistSelecionada->getNome() << endl;
+        cout << "1. Adicionar Música" << endl;
+        cout << "2. Remover Música" << endl;
+        cout << "3. Listar Músicas" << endl;
+        cout << "4. Mover Música" << endl;
+        cout << "5. Tocar Próxima" << endl;
+        cout << "0. Voltar" << endl;
+        
+        switch (lerOpcao(0, 5)) {
+          case 1:
+            adicionarMusicaNaPlaylist(musicas, playlistSelecionada);
+            break;
+          case 2:
+            removerMusicaDePlaylist(playlistSelecionada);
+            break;
+          case 3: 
+            listarMusicas(playlistSelecionada->getMusicas());
+            break;
+          case 4: 
+            moverMusica(playlists, playlistSelecionada);
+            break;
+          case 5: 
+            tocarProxima(playlistSelecionada);
+            break;
+          case 0:
+             // Volta para o Menu Principal
+            fecharMenu = true;
+            break;
+          default:
+            cout << "Opção inválida!" << endl;
+            break;
+        }
+      }
+    }
+  }
+}
+
+bool menuPrincipal(Lista<Playlist*> *playlists, Lista<Musica*> *musicas)
+{
   imprimirTitulo("MENU PRINCIPAL");
   
   cout << "1. Gerenciar Músicas" << endl;
   cout << "2. Gerenciar Playlists" << endl;
+  cout << "3. Gerenciar Músicas de Playlist" << endl;
   cout << "0. Sair" << endl;
 
-  switch (lerOpcao(0, 2)) {
+  switch (lerOpcao(0, 3)) {
     case 1:
       // Menu - Gerenciar Músicas
       while (gerenciarMusicas(playlists, musicas));
@@ -234,6 +399,10 @@ bool menuPrincipal(Lista<Playlist*> *playlists, Lista<Musica*> *musicas) {
     case 2:
        // Menu - Gerenciar Playlists
       while (gerenciarPlaylists(playlists, musicas));
+      break;
+    case 3:
+       // Menu - Gerenciar Músicas de Playlists
+      gerenciarMusicasDePlaylist(playlists, musicas);
       break;
     case 0:
       // Fecha o programa

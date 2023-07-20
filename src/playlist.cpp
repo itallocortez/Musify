@@ -45,12 +45,16 @@ void Playlist::removerEm(int indice)
 
 Musica* Playlist::getProximaMusica() 
 {
+  Musica *proximaMusica = nullptr;
+  
   if (idProximaMusica < musicas.getTamanho()) {
+    proximaMusica = musicas.em(idProximaMusica)->getValor();
     ++idProximaMusica;
-    return musicas.em(idProximaMusica)->getValor();
   } else {
-    return nullptr;
+    proximaMusica = nullptr;
   }
+
+  return proximaMusica;
 }
 
 void Playlist::imprimir(int indice)
