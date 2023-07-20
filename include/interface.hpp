@@ -74,6 +74,50 @@ void listarMusicas(Lista<Musica*> *musicas);
 bool gerenciarMusicas(Lista<Playlist*> *playlists, Lista<Musica*> *musicas);
 
 /**
+ * @brief Menu para cadastro de playlists.
+ *
+ * Esta função é responsável por apresentar a interface que permite ao usuário
+ * cadastrar uma nova playlist no sistema.
+ *
+ * @param playlists Ponteiro para a lista de playlists disponíveis.
+ */
+void cadastrarPlaylist(Lista<Playlist*> *playlists);
+
+/**
+ * @brief Menu para remoção de playlists.
+ *
+ * Esta função é responsável por apresentar a interface que permite ao usuário
+ * remover uma playlist do sistema.
+ *
+ * @param playlists Ponteiro para a lista de playlists existentes.
+ */
+void removerPlaylist(Lista<Playlist*> *playlists);
+
+/**
+ * @brief Lista todas as playlists existentes.
+ *
+ * Essa função lista para o usuário todas as playlists existentes.
+ *
+ * @param musicas Ponteiro para a lista de playlists que deseja listar.
+ */
+void listarPlaylists(Lista<Playlist*> *playlists);
+
+/**
+ * @brief Menu para Gerenciamento de Playlists
+ *
+ * Este menu permite ao usuário acessar opções para cadastrar, remover e listar as playlists do sistema.
+ * Ao selecionar uma das opções disponíveis, o usuário será direcionado para a funcionalidade correspondente.
+ * O cadastro permite adicionar novas playlists à lista de playlists existentes do sistema.
+ * A remoção permite eliminar playlists existentes, sendo uma ação irreversível.
+ * A listagem exibe todas as playlists cadastradas no sistema, facilitando a visualização.
+ *
+ * @param playlists Ponteiro para a lista de playlists existentes.
+ * @param musicas Ponteiro para a lista de músicas disponíveis.
+ * @return Retorna False se o usuário fechou o menu e True se escolheu uma opção.
+ */
+bool gerenciarPlaylists(Lista<Playlist*> *playlists, Lista<Musica*> *musicas);
+
+/**
  * @brief Menu Principal
  *
  * Este é o menu principal do sistema, que oferece ao usuário acesso a outros menus de gerenciamento.

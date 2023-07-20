@@ -143,6 +143,82 @@ bool gerenciarMusicas(Lista<Playlist*> *playlists, Lista<Musica*> *musicas) {
   return true;
 }
 
+void cadastrarPlaylist(Lista<Playlist*> *playlists) {
+  imprimirTitulo("CADASTRAR PLAYLIST");
+  
+  string nome;
+  
+  cout << "Digite o nome da playlist: ";
+  getline(cin, nome);
+  
+  Playlist *novaPlaylist = new Playlist(nome);
+  playlists->inserirNoFinal(novaPlaylist);
+
+  cout << endl << "Playlist cadastrada com sucesso!" << endl;
+}
+
+void removerPlaylist(Lista<Playlist*> *playlists) {
+  if(playlists->isVazia()) {
+    cout << "Nenhuma playlist para remover!" << endl;
+  } else {
+    listarPlaylists(playlists);
+
+    int indice; // O índice da playlist que será removida.    
+    cout << "Informe o [ID] da playlist que será removida.";
+    indice = lerOpcao(0, (playlists->getTamanho() - 1));
+
+    Playlist* playlistRemovida = playlists->em(indice)->getValor();
+  
+    // Por fim, remove da lista global de playlists.
+    delete playlistRemovida;
+    playlists->removerEm(indice);
+
+    cout << endl << "Playlist removida com sucesso!" << endl;
+  }
+}
+
+void listarPlaylists(Lista<Playlist*> *playlists) {
+  if (playlists->isVazia()) {
+    cout << "Nenhuma playlist para listar!" << endl;
+  } else {
+    cout << "Lista de playlists:\n";
+
+    for (int i = 0; i < playlists->getTamanho(); i++) {
+      cout << "[" << i << "] ";
+      cout << "Nome: " << playlists->em(i)->getValor()->getNome() << endl;
+    }
+    cout << endl;
+  }
+}
+
+bool gerenciarPlaylists(Lista<Playlist*> *playlists, Lista<Musica*> *musicas) {
+  imprimirTitulo("GERENCIAR PLAYLISTS");
+
+  cout << "1. Cadastrar Playlist" << endl;
+  cout << "2. Remover Playlist" << endl;
+  cout << "3. Listar Playlists" << endl;
+  cout << "0. Voltar" << endl;
+
+  switch (lerOpcao(0, 3)) {
+    case 1:
+      cadastrarPlaylist(playlists);
+      break;
+    case 2:
+      removerPlaylist(playlists);
+      break;
+    case 3: 
+      listarPlaylists(playlists);
+      break;
+    case 0:
+      // Volta para o Menu Principal
+      return false;
+    default:
+      cout << "Opção inválida!" << endl;
+      break;
+  }
+  return true;
+}
+
 bool menuPrincipal(Lista<Playlist*> *playlists, Lista<Musica*> *musicas) {
   imprimirTitulo("MENU PRINCIPAL");
   
@@ -153,13 +229,11 @@ bool menuPrincipal(Lista<Playlist*> *playlists, Lista<Musica*> *musicas) {
   switch (lerOpcao(0, 2)) {
     case 1:
       // Menu - Gerenciar Músicas
-      while (gerenciarMusicas(playlists, musicas)) {
-      }
+      while (gerenciarMusicas(playlists, musicas));
       break;
     case 2:
        // Menu - Gerenciar Playlists
-      while (1) {
-      }
+      while (gerenciarPlaylists(playlists, musicas));
       break;
     case 0:
       // Fecha o programa
