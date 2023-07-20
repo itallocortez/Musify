@@ -18,4 +18,5 @@ include_directories( include )
 add_executable( musify
                 src/main.cpp
                 src/musica.cpp
-                src/playlist.cpp )
+                src/playlist.cpp
+                src/interface.cpp )
