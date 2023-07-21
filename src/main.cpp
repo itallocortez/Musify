@@ -1,5 +1,13 @@
 #include "interface.hpp"
 
+/**
+ * @file main.cpp
+ *
+ * @brief Este arquivo contém a função inicial do programa.
+ *
+ * Este arquivo inicia o programa e cria músicas e playlists padrões para testes.
+ */
+
 int main() {
   Lista<Playlist*> playlists;
   Lista<Musica*> musicas;

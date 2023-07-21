@@ -1,0 +1,10 @@
+<map id="Playlist" name="Playlist">
+<area shape="rect" id="Node000001" title="Classe que representa uma Playlist de músicas no sistema." alt="" coords="35,293,100,320"/>
+<area shape="rect" id="Node000002" href="$class_lista.html" title=" " alt="" coords="5,203,130,229"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,244,70,293,65,293,65,244"/>
+<area shape="rect" id="Node000003" href="$class_no.html" title=" " alt="" coords="11,96,124,123"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="70,137,70,202,65,202,65,137"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="140,101,150,109,142,118,124,120,124,115,140,113,145,109,137,105"/>
+<area shape="rect" id="Node000004" href="$class_musica.html" title="Classe que representa uma Música no sistema." alt="" coords="36,5,99,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="70,47,70,95,65,95,65,47"/>
+</map>

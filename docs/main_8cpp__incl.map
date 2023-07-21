@@ -1,0 +1,20 @@
+<map id="src/main.cpp" name="src/main.cpp">
+<area shape="rect" id="Node000001" title="Este arquivo contém a função inicial do programa." alt="" coords="5,5,102,32"/>
+<area shape="rect" id="Node000002" href="$interface_8hpp.html" title="Este arquivo contém as declarações dos recursos de interface." alt="" coords="6,80,101,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,33,56,65,51,65,51,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="12,304,90,331"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="53,108,43,171,40,213,41,256,47,289,42,290,36,256,35,213,38,171,48,107"/>
+<area shape="rect" id="Node000004" href="$playlist_8hpp.html" title="Este arquivo contém as declarações da classe Playlist." alt="" coords="94,155,181,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="70,105,114,143,111,147,66,109"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="51,229,123,256"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="131,183,106,219,102,216,126,180"/>
+<area shape="rect" id="Node000006" href="$lista_8hpp.html" title="Este arquivo contém as declarações e implementações da classe Lista." alt="" coords="146,229,217,256"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="147,180,169,215,164,218,143,183"/>
+<area shape="rect" id="Node000008" href="$musica_8hpp.html" title="Este arquivo contém as declarações da classe Musica." alt="" coords="241,229,330,256"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="164,179,248,220,245,225,162,184"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="160,259,88,299,85,294,157,254"/>
+<area shape="rect" id="Node000007" href="$no_8hpp.html" title="Este arquivo contém as declarações e implementações da classe No." alt="" coords="151,304,212,331"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="184,257,184,289,179,289,179,257"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="259,304,312,331"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="288,257,288,289,283,289,283,257"/>
+</map>

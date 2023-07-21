@@ -1,5 +1,11 @@
 #include "playlist.hpp"
 
+/**
+ * @file playlist.cpp
+ *
+ * @brief Este arquivo implementa as funções da classe Playlist.
+ */
+
 using namespace std;
 
 Playlist::Playlist(string nome)

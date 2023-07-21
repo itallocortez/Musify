@@ -1,5 +1,14 @@
 #include "interface.hpp"
 
+/**
+ * @file interface.cpp
+ *
+ * @brief Este arquivo implementa os recursos de interface.
+ *
+ * Este arquivo contém os menus do sistema e as funções que permitem ao usuário interagir
+ * com o sistema de músicas.
+ */
+
 using namespace std;
 
 void imprimirTitulo(string titulo)

@@ -1,0 +1,11 @@
+<map id="include/playlist.hpp" name="include/playlist.hpp">
+<area shape="rect" id="Node000001" title="Este arquivo contém as declarações da classe Playlist." alt="" coords="138,5,270,32"/>
+<area shape="rect" id="Node000002" href="$interface_8hpp.html" title="Este arquivo contém as declarações dos recursos de interface." alt="" coords="59,80,200,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,44,144,82,140,78,179,41"/>
+<area shape="rect" id="Node000005" href="$playlist_8cpp.html" title="Este arquivo implementa as funções da classe Playlist." alt="" coords="224,80,333,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="229,41,268,78,264,82,225,44"/>
+<area shape="rect" id="Node000003" href="$interface_8cpp.html" title="Este arquivo implementa os recursos de interface." alt="" coords="5,155,123,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="110,120,77,156,73,152,106,116"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html" title="Este arquivo contém a função inicial do programa." alt="" coords="147,155,243,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="152,116,185,152,181,156,148,120"/>
+</map>
