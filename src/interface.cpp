@@ -82,7 +82,7 @@ void cadastrarMusica(Lista<Musica*> *musicas)
 void removerMusica(Lista<Playlist*> *playlists, Lista<Musica*> *musicas)
 {
   if(musicas->isVazia()) {
-    cout << "Nenhuma música para remover!" << endl;
+    cout << endl << "Nenhuma música para remover!" << endl;
   } else {
     listarMusicas(musicas);
 
@@ -116,9 +116,9 @@ void removerMusica(Lista<Playlist*> *playlists, Lista<Musica*> *musicas)
 void listarMusicas(Lista<Musica*> *musicas)
 {
   if (musicas->isVazia()) {
-    cout << "Nenhuma música para listar!" << endl;
+    cout << endl << "Nenhuma música para listar!" << endl;
   } else {
-    cout << "Lista de músicas:\n";
+    cout << endl << "Lista de músicas:" << endl;
 
     for (int i = 0; i < musicas->getTamanho(); i++) {
       cout << "[" << i << "] ";
@@ -176,7 +176,7 @@ void cadastrarPlaylist(Lista<Playlist*> *playlists)
 void removerPlaylist(Lista<Playlist*> *playlists)
 {
   if(playlists->isVazia()) {
-    cout << "Nenhuma playlist para remover!" << endl;
+    cout << endl << "Nenhuma playlist para remover!" << endl;
   } else {
     listarPlaylists(playlists);
 
@@ -197,9 +197,9 @@ void removerPlaylist(Lista<Playlist*> *playlists)
 void listarPlaylists(Lista<Playlist*> *playlists)
 {
   if (playlists->isVazia()) {
-    cout << "Nenhuma playlist para listar!" << endl;
+    cout << endl << "Nenhuma playlist para listar!" << endl;
   } else {
-    cout << "Lista de playlists:\n";
+    cout << endl << "Lista de playlists:" << endl;
 
     for (int i = 0; i < playlists->getTamanho(); i++) {
       cout << "[" << i << "] ";
@@ -257,10 +257,8 @@ Playlist* selecionarPlaylist(Lista<Playlist*> *playlists)
 void adicionarMusicaNaPlaylist(Lista<Musica*> *musicas, Playlist *playlists)
 {
   if(musicas->isVazia()) {
-    cout << "Nenhuma música para adicionar!" << endl;
+    cout << endl << "Nenhuma música para adicionar!" << endl;
   } else {
-    imprimirTitulo("ADICIONAR MÚSICA");
-    
     listarMusicas(musicas);
   
     int indice; // O índice da música que será adicionada.    
@@ -278,7 +276,7 @@ void adicionarMusicaNaPlaylist(Lista<Musica*> *musicas, Playlist *playlists)
 void removerMusicaDePlaylist(Playlist *playlist)
 {
   if(playlist->getTamanho() == 0) {
-    cout << "Nenhuma música para remover!" << endl;
+    cout << endl << "Nenhuma música para remover!" << endl;
   } else {
     listarMusicas(playlist->getMusicas());
 
@@ -296,10 +294,10 @@ void removerMusicaDePlaylist(Playlist *playlist)
 void moverMusica(Lista<Playlist*> *playlists, Playlist *playlistSelecionada)
 {
   if(playlists->getTamanho() < 2) {
-    cout << "Nenhuma outra playlist para mover a música!" << endl;
+    cout << endl << "Nenhuma outra playlist para mover a música!" << endl;
   } else {
     if (playlistSelecionada->getTamanho() == 0) {
-      cout << "Nenhuma música para mover nessa playlist!" << endl;
+      cout << endl << "Nenhuma música para mover nessa playlist!" << endl;
     } else {
       listarPlaylists(playlists);
 
@@ -308,7 +306,7 @@ void moverMusica(Lista<Playlist*> *playlists, Playlist *playlistSelecionada)
       Playlist *PlaylistDestino = playlists->em(idPlaylistDestino)->getValor();
 
       if(PlaylistDestino == playlistSelecionada) {
-        cout << "Selecione uma playlist diferente da original." << endl;
+        cout << endl << "Selecione uma playlist diferente da original." << endl;
       } else {
         listarMusicas(playlistSelecionada->getMusicas());
       
@@ -342,7 +340,7 @@ void tocarProxima(Playlist *playlistSelecionada)
 void gerenciarMusicasDePlaylist(Lista<Playlist*> *playlists, Lista<Musica*> *musicas)
 {
   if(playlists->isVazia()) {
-    cout << "Nenhuma playlist para gerenciar!" << endl;
+    cout << endl << "Nenhuma playlist para gerenciar!" << endl;
   } else {
     bool fecharMenu = false;
   
